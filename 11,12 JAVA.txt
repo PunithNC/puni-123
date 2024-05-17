@@ -1,0 +1,142 @@
+11a.FilenotfoundException occurred.
+
+
+package pavanm;
+import java.io.*;
+ class FileNotFound {
+public static void main(String[] args) 
+throws IOException{
+FileReader file=new FileReader("C:\\Users\\tcs\\Desktop\\d.txt");
+BufferedReader fileinput=new BufferedReader(file);
+for (int counter=0;counter<3;counter++)
+	System.out.println(fileinput.readLine());
+fileinput.close();}
+
+
+}
+
+
+11b.FilenotfoundException not occurred.
+
+package pavanm;
+import java.io.*;
+public class Exp11b {
+	public static void main(String[] args) 
+throws IOException{
+FileReader file=new FileReader("C:\\Users\\tcs\\Desktop\\d,txt");
+BufferedReader fileinput=new BufferedReader(file);
+for (int counter=0;counter<3;counter++)
+System.out.println(fileinput.readLine());
+fileinput.close();}
+
+	}
+
+
+11c.java program to illustrate uncheked exception.
+
+
+package pavanm;
+public class Exp11a {
+	public static void main(String[] args) {
+int x=0;
+int y=10;
+int z=y/x;
+	}
+
+}
+
+
+12.build different types of toys and check compliance with ISP
+
+package pavanm;
+
+interface Toy {
+    public void set(double p, String s);
+
+    public void display();
+}
+
+interface Movable {
+    public void move();
+}
+
+interface Flyable {
+    public void fly();
+}
+
+class Teddy implements Toy {
+    double price;
+    String colour;
+
+    public void set(double p, String c) {
+        price = p;
+        colour = c;
+    }
+
+    public void display() {
+        System.out.println("Teddy price is " + price);
+        System.out.println("Teddy color is " + colour);
+    }
+}
+
+class CarToys implements Toy, Movable {
+    double price;
+    String colour;
+
+    public void set(double p, String c) {
+        price = p;
+        colour = c;
+    }
+
+    public void display() {
+        System.out.println("Car toy price is " + price);
+        System.out.println("Car toy color is " + colour);
+    }
+
+    public void move() {
+        System.out.println("Car toy Moves");
+    }
+}
+
+class PlaneToys implements Toy, Movable, Flyable {
+    double price;
+    String colour;
+
+    public void set(double p, String c) {
+        price = p;
+        colour = c;
+    }
+
+    public void display() {
+        System.out.println("Plane toy price is " + price);
+        System.out.println("Plane toy color is " + colour);
+    }
+
+    public void move() {
+        System.out.println("Plane toy Moves");
+    }
+
+    public void fly() {
+        System.out.println("Plane toy Flies");
+    }
+}
+
+public class Exp12 {
+    public static void main(String[] args) {
+        Teddy ob1 = new Teddy();
+        ob1.set(120.3, "Pink");
+        ob1.display();
+
+        CarToys ob2 = new CarToys();
+        ob2.set(220.3, "Blue");
+        ob2.display();
+        ob2.move();
+
+        PlaneToys ob3 = new PlaneToys();
+        ob3.set(1120.5, "Red");
+        ob3.display();
+        ob3.move();
+        ob3.fly();
+    }
+}
+
